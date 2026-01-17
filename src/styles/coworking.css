@@ -1,0 +1,88 @@
+.coworking-container-main {
+    display: grid;
+    gap: var(--space-md);
+    margin: var(--space-xl);
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "filtros coworking-sites";
+}
+
+.coworking-container-main .coworking-filtros {
+    grid-area: filtros;
+}
+
+.coworking-container-main .coworking-sites {
+    grid-area: coworking-sites;
+}
+
+
+.coworking-sites {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "h1"
+        "piso1"
+        "piso2";
+}
+
+.coworking-sites h1 {
+    grid-area: h1;
+}
+
+.floors {
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-md);
+    gap: var(--space-md);
+}
+
+.coworking-sites .piso1 {
+    grid-area: piso1;
+    padding: var(--space-md);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "h2 h2"
+        "site1 site2";
+}
+
+.piso1 h3 {
+    grid-area: h2;
+}
+
+.piso1 .site1 {
+    grid-area: site1;
+}
+
+.piso1 .site2 {
+    grid-area: site2;
+}
+
+.coworking-sites .piso2 {
+    grid-area: piso2;
+    padding: var(--space-md);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "h2 h2 h2 h2"
+        "site1 site2 site3 site4";
+}
+
+.piso2 h3 {
+    grid-area: h2;
+}
+
+.piso2.site1 {
+    grid-area: site1;
+}
+
+.piso2 .site2 {
+    grid-area: site2;
+}
+
+.piso2 .site3 {
+    grid-area: site3;
+}

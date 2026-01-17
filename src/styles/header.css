@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) 2rem;
+  background: var(--color-surface);
+}
+
+.desktop-nav a {
+  margin-left: var(--space-md);
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.desktop-nav a:hover {
+  text-decoration: underline;
+}
+
+.desktop-nav button {
+  margin-left: var(--space-md);
+}
