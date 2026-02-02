@@ -43,7 +43,7 @@ function Header() {
   return (
     <header className="header">
       <div className="logo" onClick={() => navigate("/dashboard")} style={{ cursor: 'pointer' }}>
-        <img src="/src/assets/nexus.svg" alt="" />
+        <img src="/img/nexus.svg" alt="" />
       </div>
 
       <nav className="desktop-nav">
