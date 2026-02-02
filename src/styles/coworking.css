@@ -1,33 +1,151 @@
-.coworking-container-main {
+.coworking-main {
     display: grid;
-    gap: var(--space-md);
-    margin: var(--space-xl);
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 1fr minmax(auto, 1440px) 1fr;
     grid-template-rows: auto;
-    grid-template-areas: "filtros coworking-sites";
 }
 
-.coworking-container-main .coworking-filtros {
-    grid-area: filtros;
+/* --- Layout Principal (coworking.css) --- */
+.coworking-container-main {
+    grid-column: 2/3;
+    display: grid;
+    gap: var(--space-xl);
+    margin: var(--space-xl);
+    grid-template-columns: auto 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: "aside-cards coworking-sites";
 }
 
-.coworking-container-main .coworking-sites {
-    grid-area: coworking-sites;
+@media (max-width: 1200px) {
+  .coworking-container-main {
+    grid-column: 1/3;
+    max-height: none;
+    margin: var(--space-xl);
+  }
 }
 
+@media (max-width: 768px) {
+  .coworking-container-main {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "coworking-sites";
+  }
+}
+
+.coworking-container-main .aside-cards {
+  grid-area: aside-cards;
+  height: fit-content;
+}
+
+@media(max-width:768px) {
+  .coworking-container-main .aside-cards {
+    display: none;
+  }
+}
+
+.aside-cards {
+  display: grid;
+  grid-auto-rows: auto;
+  gap: var(--space-md);
+}
+
+.aside-card{
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-400);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aside-card.recomendations{
+  border: none;
+  padding: 0;
+}
+
+.spaces-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.stat-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateX(-3px);
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-accent-100);
+
+}
+
+.contcalendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(30px, auto);
+  gap: 8px;
+  max-width: 420px;
+}
+
+.day {
+  text-align: center;
+  font-weight: 600;
+}
+
+.cell {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cell:hover {
+  transform: translateY(-3px);
+  background: var(--color-accent-orange-bg);
+}
+
+.cell.empty {
+  background: transparent;
+  border: none;
+}
 
 .coworking-sites {
+    grid-area: coworking-sites;
     display: grid;
     gap: var(--space-md);
-    grid-template-rows: auto auto auto;
+    grid-template-rows: minmax(auto, 50px) auto auto;
     grid-template-areas: 
-        "h1"
-        "piso1"
-        "piso2";
+      "h1"
+      "piso1"
+      "piso2";
+}
+
+@media (max-width:768px) {
+  .coworking-sites {
+    grid-template-areas: 
+      "h1"
+      "accordion"
+      "piso1"
+      "piso2";
+  }
+
+  .coworking-sites h1 {
+    text-align: center;
+  }
 }
 
 .coworking-sites h1 {
     grid-area: h1;
+    margin-top: 0;
+    height: 100%
 }
 
 .floors {
@@ -37,52 +155,277 @@
     gap: var(--space-md);
 }
 
+.accordion {
+  grid-area: accordion;
+  display: none;
+}
+
+@media (max-width:768px) {
+  .accordion {
+    display: initial;
+  }
+}
+
+/* Piso 1 Grid */
 .coworking-sites .piso1 {
     grid-area: piso1;
     padding: var(--space-md);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: minmax(auto, 50px) auto;
     grid-template-areas: 
-        "h2 h2"
-        "site1 site2";
+      "h2 h2"
+      "site1 site2";
 }
 
-.piso1 h3 {
-    grid-area: h2;
+.piso1 h3 { 
+  grid-area: h2;
+  margin-top: 0;
 }
 
 .piso1 .site1 {
-    grid-area: site1;
+  grid-area: site1;
 }
 
-.piso1 .site2 {
-    grid-area: site2;
+.piso1 .site2 { 
+  grid-area: site2;
 }
 
+@media (max-width: 768px) {
+  .coworking-sites .piso1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "h2"
+      "site1" 
+      "site2";
+  }
+}
+
+/* Piso 2 Grid */
 .coworking-sites .piso2 {
     grid-area: piso2;
     padding: var(--space-md);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: minmax(auto, 50px) auto;
     grid-template-areas: 
         "h2 h2 h2 h2"
         "site1 site2 site3 site4";
 }
 
-.piso2 h3 {
-    grid-area: h2;
+.piso2 h3 { 
+  grid-area: h2; 
+  margin-top: 0; 
 }
 
-.piso2.site1 {
-    grid-area: site1;
+.piso2 .site1 { 
+  grid-area: site1;
 }
 
-.piso2 .site2 {
-    grid-area: site2;
+.piso2 .site2 { 
+  grid-area: site2;
 }
 
-.piso2 .site3 {
-    grid-area: site3;
+.piso2 .site3 { 
+  grid-area: site3;
+}
+
+.piso2 .site4 { 
+  grid-area: site4;
+}
+
+@media (max-width: 1200px) {
+    .coworking-sites .piso2 {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "h2 h2"
+            "site1 site2" 
+            "site3 site4";
+    }
+}
+
+@media (max-width: 768px) {
+    .coworking-sites .piso2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "h2"
+            "site1"
+            "site2" 
+            "site3" 
+            "site4";
+    }
+}
+
+/* --- Modal (coworkingmodal.css) --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s;
+} 
+
+/* Clase utilitaria para ocultar el modal con JS */
+.hidden {
+    display: none !important;
+}
+
+.modal-content {
+  position: relative; /* Para posicionar el botón de cerrar */
+  background: var(--color-surface);
+  width: min(90%, 600px);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-md);
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas: 
+    "header header header header header header"
+    "info info info schedule schedule schedule"
+    ;
+}
+
+@media (max-width:768px) {
+  .modal-content {
+    width: min(85%, 600px);
+    padding: 1.2rem;
+    grid-template-areas: 
+      "header header header header header header"
+      "info info info info info info"
+      "schedule schedule schedule schedule schedule schedule"
+      ;
+  }
+
+  .modal-content h2 {
+    margin-left: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .modal-info-space {
+    grid-area: info;
+  }
+
+  .modal-space-schedule {
+    grid-area: schedule;
+  }
+
+  .schedule-container {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .schedule-container h4{
+    width: 100%;
+  }
+
+  .schedule-item {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width:512px) {
+  .schedule-item {
+    justify-content: center !important;
+  }
+}
+
+#modal-title {
+  grid-area: header;
+  margin: var(--space-sm);
+}
+
+.modal-info-space {
+  grid-area: info;
+}
+
+.modal-info-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: var(--space-sm);
+
+}
+
+.modal-info-list li {
+  list-style-type: none;
+  border: 1px solid var(--color-border);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width:768px) {
+  .modal-info-list li {
+    width: 100%;
+  }
+}
+
+.modal-space-schedule {
+  grid-area: schedule;
+}
+
+.modal-space-schedule h3 {
+  margin-bottom: var(--space-sm);
+}
+
+.schedule-container {
+  padding: var(--space-md);
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.schedule-container h4 {
+  margin: var(--space-sm);
+}
+
+.schedule-item {
+  display: flex;
+  flex: 1 1 45%;
+  justify-content: space-between;
+  border: 1px solid var(--color-border);
+  align-items: center;
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+}
+
+.schedule-item p {
+  margin: var(--space-sm);
+}
+
+.schedule-item button {
+  padding: var(--space-sm);
+  box-sizing: border-box;
+  height: fit-content;
+}
+
+.schedule-buttons button {
+  width: 100%;
+  padding: var(--space-sm);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+}
+
+.modal-close:hover {
+  color: var(--color-text-white);
 }

@@ -1,50 +1,88 @@
 .footer {
-  background-color: var(--color-surface-black);
-  border-top-left-radius: var(--radius-lg);
-  border-top-right-radius: var(--radius-lg);
-  padding: 3rem 2rem 1.5rem;
+  position: relative;
+  background-color: var(--color-primary);
+  padding: 100px 20px 40px; /* Más espacio arriba para que el degradado luzca */
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  color: var(--color-text-muted);
+  overflow: hidden;
 }
+
+/* El "Baño de Luz" que cae sobre las cajas */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px; /* Aumentamos el rango de la luz */
+  /* Gradiente radial que simula un foco de luz blanca/amarilla desde arriba */
+  background: radial-gradient(
+    circle at 50% -100px, 
+    var(--color-accent-bg) 0%, 
+    var(--glass-subtle) 50%,
+    transparent 80%
+  );
+  z-index: 1; /* Por debajo de las cajas */
+  pointer-events: none;
+} 
 
 .footer-container {
-  display: flex;
-  gap: 2rem;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr; 
+  gap: 16px;
+  position: relative;
+  z-index: 20; /* Encima del gradiente del footer */
 }
 
+/* AJUSTE CLAVE: Cada caja ahora tiene su propio reflejo superior */
 .footer-column {
-  max-width: 300px;
+  background-color: var(--color-primary);
+  padding: 32px;
+  border-radius: 28px;
+  border: 1px solid var(--glass-subtle);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
-.footer-column h2 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+/* Este es el reflejo blanco que "baña" la parte superior de cada contenedor */
+.footer-column::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Un gradiente lineal muy sutil que nace blanco en el tope */
+  background: linear-gradient(
+    to bottom, 
+    var(--glass-border) 0%, 
+    transparent 40%
+  );
+  pointer-events: none;
 }
 
-.footer-column p,
-.footer-column li {
-  font-size: 0.9rem;
-  opacity: 0.85;
-  margin-bottom: 0.5rem;
-}
-
-.footer-column a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.footer-column a:hover {
-  text-decoration: underline;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-copy {
+.footer-bottom {
+  padding-top: var(--space-xl);
   text-align: center;
-  margin-top: 2rem;
-  font-size: 0.8rem;
-  opacity: 0.6;
 }
+
+.footer-legal-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--space-md);
+  a{
+    color: var(--color-text-muted);
+  }
+  a:hover{
+    color: var(--color-text-white);
+  }
+}
+
+/* Resto de estilos igual que antes... */
+.footer-column h2 { color: var(--color-text-secondary); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 24px; position: relative; z-index: 4; }
+.footer-column a { color: var(--color-text-white); text-decoration: none; font-size: 0.9rem; position: relative; z-index: 4; }

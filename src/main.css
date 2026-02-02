@@ -10,23 +10,66 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-    /* === Colores === */
-  --color-bg: #fafafa;                  /* fondo general */
-  --color-surface: #ffffff;             /* tarjetas, contenedores */
+  /* === Fondo y Superficie (Inspirado en la imagen) === */
+  --color-bg: #f8f9fa;                 /* Fondo base claro */
+  --color-bg-grainy: #fff9e6;          /* El tono amarillento para el gradiente superior */
+  --color-surface: #ffffff;            /* Tarjetas puras */
   --color-surface-black: #1a1a1a;
-  --color-primary: #4c6ef5;             /* color principal */
-  --color-primary-hover: #3b5bdb;
-  --color-secondary: #22b8cf;           /* color secundario */
-  --color-accent: #f59f00;              /* acento */
-  --color-success: #37b24d;
-  --color-warning: #f08c00;
-  --color-error: #e03131;
-  --color-text: #212529;                /* texto principal */
-  --color-text-white: #fafafa; 
-  --color-text-secondary: #495057;      /* texto secundario */
-  --color-border: #e9ecef;
-  --color-border-hover: #4c6ef5;
-  --color-muted: #868e96;
+  
+  /* === Marca (Ajustado al estilo 'uicons') === */
+  --color-primary: #1a1a1a;            /* Negro profundo para textos y botones principales */
+  --color-accent: #fdf001;             /* Amarillo "Get Started" de tu imagen */
+  --color-accent-hover: #e6da00;
+  --color-primary-hover: #7c7b7b;
+  --color-accent-bg: rgba(253, 240, 1, 0.15);
+  --color-accent-shadow: rgba(253, 240, 1, 0.18);
+
+  /* Semantic surface backgrounds */
+  --color-success-bg: rgba(68, 215, 92, 0.06);
+  --color-success-border: rgba(47,179,68,0.14);
+  --color-error-bg: rgba(214,57,57,0.06);
+  --color-error-border: rgba(214,57,57,0.14);
+  --color-warning-bg: rgba(247,103,7,0.06);
+  --color-warning-border: rgba(247,103,7,0.14);
+
+  /* Additional semantic surface tokens */
+  --color-secondary-bg: rgba(76,110,245,0.07);
+  --color-accent-orange-bg: rgba(245,159,0,0.08);
+  --overlay: rgba(0,0,0,0.5);
+  
+  /* Focus / glow tokens */
+  --focus-ring: 0 0 0 3px rgba(46,134,222,0.5);
+  --glow-error-sm: 0 0 5px rgba(231,76,60,0.3);
+  --glow-error-lg: 0 0 20px rgba(231,76,60,0.6);
+  --glow-success: 0 0 15px rgba(47,179,68,0.4);
+  --box-shadow-soft: 0 2px 8px rgba(0,0,0,0.05);
+  --glass-subtle: rgba(255,255,255,0.05);
+
+  /* Dark border & muted accent for dark-mode examples */
+  --color-border-dark: #444;
+  --color-accent-muted: #f0e68c;
+  
+  /* === Colores de Apoyo === */
+  --color-secondary: #4c6ef5;          /* Tu azul anterior, ahora como secundario */
+  --color-success: #2fb344;
+  --color-warning: #f76707;
+  --color-error: #d63939;
+
+  /* === Texto === */
+  --color-text: #1a1b1e;               /* Casi negro para alta legibilidad */
+  --color-text-secondary: #626971;     /* Gris para descripciones */
+  --color-text-muted: #adb5bd;         /* Gris para placeholders */
+  --color-text-white: #ffffff;
+
+  /* === Bordes y Sombras (Clave para el look moderno) === */
+  --color-border: #f1f3f5;
+  --color-border-hover: #dee2e6;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -2px rgba(0,0,0,0.05);
+  
+  /* === Glassmorphism (Para menús y headers) === */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.073);
 
   /* === Tipografía === */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -51,6 +94,7 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
+  --radius-full: 999999999px;
 
   /* === Sombras === */
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
@@ -76,6 +120,10 @@ body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
   background-color: var(--color-bg);
+  /* Gradiente que imita la mancha de luz amarilla de la imagen */
+  background-image: radial-gradient(circle at 10% 10%, var(--color-bg-grainy) 0%, var(--color-bg) 50%);
+  min-height: 100vh;
+  position: relative;
   color: var(--color-text);
   line-height: 1.6;
 }
@@ -102,7 +150,7 @@ a:hover {
 }
 
 /* Botones base */
-button {
+button, .btn {
   font-family: var(--font-sans);
   cursor: pointer;
   border: none;
@@ -112,9 +160,11 @@ button {
   border-radius: var(--radius-sm);
   font-size: var(--text-base);
   transition: 0.2s ease;
+  text-align: center;
 }
 button:hover {
   background: var(--color-primary-hover);
+  transform: translateY(-1px);
 }
 
 /* Inputs base */

@@ -6,17 +6,20 @@ import Dashboard from "../pages/Dashboard";
 import Library from "../pages/Library";
 import BookDetail from "../pages/BookDetail";
 import Coworking from "../pages/Coworking";
-import CoworkingDetail from "../pages/CoworkingDetail";
 import Purchases from "../pages/Purchases";
+import Cart from "../pages/Cart";
+import Payment from "../pages/Payment";
+import Account from "../pages/Account";
+import Unavailable from "../pages/Unavailable";
 import PrivateRoute from "./PrivateRoute";
 
 function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/home" />} />
+      <Route path="/" element={<Navigate to="/dashboard" />} />
       <Route path="/login" element={<Login />} />
       <Route path="/home" element={<Home />} />
-      <Route path="*" element={<Home />} />
+      <Route path="*" element={<Navigate to="/home" />} />
 
       {/* RUTAS PRIVADAS */}
       <Route
@@ -56,15 +59,6 @@ function AppRouter() {
       />
 
       <Route
-        path="/coworking/:id"
-        element={
-          <PrivateRoute>
-            <CoworkingDetail />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
         path="/purchases"
         element={
           <PrivateRoute>
@@ -72,6 +66,43 @@ function AppRouter() {
           </PrivateRoute>
         }
       />
+
+      <Route
+        path="/cart"
+        element={
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/payment"
+        element={
+          <PrivateRoute>
+            <Payment />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/account"
+        element={
+          <PrivateRoute>
+            <Account />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/unavailable"
+        element={
+          <PrivateRoute>
+            <Unavailable />
+          </PrivateRoute>
+        }
+      />
+
     </Routes>
   );
 }

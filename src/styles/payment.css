@@ -1,0 +1,33 @@
+.payment-page-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 68px);
+}
+
+.payment-container {
+    flex: 1;
+}
+
+.payment-confirmation {
+    max-width: 90vw;
+    margin: 0 auto;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--color-accent-muted);
+    padding: var(--space-md) var(--space-lg);
+    border-top: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-sm);
+    z-index: 100;
+}
+
+.confirmation-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-text { font-weight: bold; color: var(--color-text-secondary); }
+.total-price { font-size: var(--text-xl); font-weight: 800; color: var(--color-text); }

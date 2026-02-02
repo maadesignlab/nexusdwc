@@ -1,16 +1,27 @@
 /****************************HERO****************************/
 .hero {
-  min-height: 80vh;
+  min-height: calc(100vh - 68px);
   display: flex;
   align-items: center;
   padding: 0 2rem;
-  background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
-  color: #ffffff;
-}
+  color: var(--color-text-white);
+  background-image: url("/public/img/library-bg2.png");
+} 
 
 .hero-content {
   max-width: 640px;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+
+  /* Glass effect */
+  background: rgba(255, 251, 8, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
+
 
 .hero h1 {
   font-size: 2.8rem;
@@ -27,24 +38,24 @@
 .btn-add {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #ffffff;
-  color: #0f0f0f;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-add:hover {
-  background-color: #e5e5e5;
-}
+  background-color: var(--color-border);
+} 
 
 /****************************SERVICIOS****************************/
 .services {
   padding: 5rem 2rem;
-  background-color: #ffffff;
-  color: #111;
-}
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+} 
 
 .services h2 {
   text-align: center;
@@ -61,17 +72,17 @@
 }
 
 .service-card {
-  background-color: #f5f5f5;
+  background-color: var(--color-border);
   padding: 2.5rem 2rem;
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
+  box-shadow: var(--shadow-lg);
+} 
 
 .service-card h3 {
   font-size: 1.3rem;

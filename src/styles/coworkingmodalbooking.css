@@ -1,0 +1,102 @@
+/* Indicador de pasos */
+.stepper-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-xl);
+  grid-column: 1 / -1;
+}
+
+.stepper-indicator .step {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--color-border);
+  color: var(--color-text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.stepper-indicator .step.active {
+  background: var(--color-surface-black);
+}
+
+.stepper-indicator .line {
+  flex: 0.2;
+  height: 2px;
+  background: var(--color-border);
+}
+
+.stepper-indicator .line.active {
+  background: var(--color-surface-black);
+}
+
+/* Grilla de horarios */
+.step-content {
+  grid-column: 1/-1;   
+};
+
+.schedule-grid {
+  display: flex;
+  margin: var(--space-md) 0;
+}
+
+.time-slot {
+  padding: var(--space-sm);
+  background: color-mix(in srgb, var(--color-accent), transparent 50%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-text);
+  min-width: 63px;
+  &:hover {
+    color: var(--color-text-white);
+  }
+}
+
+.time-slot.selected {
+  background: var(--color-surface-black);
+  color: var(--color-text-white);
+}
+
+/* Acciones */
+.step-actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.btn-next, .btn-confirm {
+  background: var(--color-accent);
+  color: var(--color-text);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  &:hover {
+    color: var(--color-text-white);
+  }
+}
+
+.btn-back {
+  border: 1px solid var(--color-border);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.booking-target {
+   margin-bottom: var(--space-md);
+}
+
+.confirmation .summary-card {
+  border-left: 5px solid var(--color-accent);
+}
+
+.policy-text {
+  margin-top: var(--space-lg);
+}
+

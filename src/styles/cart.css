@@ -1,0 +1,165 @@
+/* --- Contenedor Principal --- */
+.cart {
+  max-width: 900px;
+  margin: calc(var(--space-xl)) auto;
+  padding: 0 var(--space-md);
+  font-family: var(--font-sans, sans-serif);
+  color: var(--color-text);
+}
+
+.cart h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-md);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--space-sm);
+}
+
+/* --- Estado Vacío --- */
+.cart.empty {
+  text-align: center;
+  height: calc(100vh - (67.6px));
+}
+
+.cart.empty h2 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-md);
+  color: var(--color-muted);
+}
+
+/* --- Lista de Productos --- */
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Información del producto (Título y Precio unitario) */
+.cart-info {
+  flex: 2; /* Ocupa más espacio que el resto */
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-md);
+}
+
+.cart-info strong {
+  font-size: var(--text-lg);
+}
+
+.cart-info span {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+.cart-info img {
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.cart-info .item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.cart-info .item-details .author {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+
+/* --- Controles de Cantidad (+ / -) --- */
+.cart-qty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cart-qty button {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-qty button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+}
+
+.cart-qty span {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Subtotal por ítem */
+.cart-subtotal {
+  flex: 1;
+  text-align: right;
+  font-weight: bold;
+  font-size: var(--text-lg);
+}
+
+/* --- Footer del Carrito (Total y Botón) --- */
+.cart-footer {
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+}
+
+.cart-footer strong {
+  font-size: 1.5rem;
+}
+
+/* Botón de finalizar compra */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-primary a {
+  text-decoration: none;
+  color: inherit;
+  display: block; /* Para que el link ocupe todo el botón */
+}
+
+/* Link de "Explorar librería" (estado vacío) */
+.cart.empty a {
+  color: var(--color-text);
+  text-decoration: underline;
+  font-weight: bold;
+}

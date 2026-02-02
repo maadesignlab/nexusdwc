@@ -3,11 +3,26 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--space-md) 2rem;
-  background: var(--color-surface);
+  background: var(--glass-bg); /* Fondo semi-transparente */
+  backdrop-filter: blur(10px);         /* Desenfoque de fondo */
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo img {
+  width: 80px;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: nowrap;
 }
 
 .desktop-nav a {
-  margin-left: var(--space-md);
   text-decoration: none;
   color: var(--color-text);
 }
@@ -19,3 +34,252 @@
 .desktop-nav button {
   margin-left: var(--space-md);
 }
+
+.menu-item {
+  position: relative;
+  display: inline-block;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%; /* Justo debajo del wrapper */
+  right: 0;
+  width: fit-content;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-lg);
+  z-index: 1000;
+  margin-top: 10px; /* Un poco de separación vertical */
+  cursor: default; /* Para que no herede el cursor pointer del wrapper */
+}
+
+/* Flechita decorativa opcional (apunta hacia arriba) */
+.submenu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+  transform: rotate(45deg);
+}
+
+.submenu li {
+  width: 100%;
+  list-style-type: none ;
+}
+
+.user-label {
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  &:hover{
+    background-color: var(--color-accent-hover);
+  }
+}
+
+/* --- Wrapper del Icono del Carrito --- */
+.cart-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cart-wrapper span {
+  padding: 0;
+  font-weight: 200;
+  &:hover {
+    text-decoration: underline;
+    background: inherit;
+  }
+}
+
+.cart-icon {
+  font-weight: bold;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.cart-icon:hover {
+  background-color: var(--color-border-hover);
+}
+
+/* Badge rojo con número de items */
+.cart-badge {
+  background-color: var(--color-error);
+  color: var(--color-text-white);
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* --- Contenedor del Mini Cart --- */
+.mini-cart {
+  position: absolute;
+  top: 100%; /* Justo debajo del wrapper */
+  right: 0;
+  width: 400px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-md);
+  z-index: 1000;
+  margin-top: 10px; /* Un poco de separación vertical */
+  cursor: default; /* Para que no herede el cursor pointer del wrapper */
+}
+
+/* Flechita decorativa opcional (apunta hacia arriba) */
+.mini-cart::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+  transform: rotate(45deg);
+}
+
+/* Mensaje de vacío */
+.mini-cart p {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin: 10px 0;
+}
+
+/* --- Items Individuales --- */
+.mini-cart-item {
+  display: grid;
+  grid-template-columns: 1fr minmax(100px, auto) minmax(100px, auto); /* Título | Controles | Precio */
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+} 
+
+.mini-cart-item img {
+  width: 30px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.mini-cart-item .mini-cart-book-info {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  line-height: calc(var(--space-sm) + 12px); /* Ajusta según el tamaño de fuente */
+}
+
+.mini-cart-item:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.mini-cart-item span:first-child {
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Corta textos muy largos con "..." */
+}
+
+/* Controles de cantidad (+ / -) pequeños */
+.mini-qty {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+}
+
+.mini-qty button {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: bold;
+  color: var(--color-text);
+  margin-left: 0; /* Reseteo */
+}
+
+.mini-qty button:hover {
+  background: var(--color-surface-black);
+  color: var(--color-text-white);
+} 
+
+.mini-qty span {
+  font-size: 0.85rem;
+  min-width: 16px;
+  text-align: center;
+}
+
+/* --- Footer del Mini Cart (Total y Botón) --- */
+.mini-cart hr {
+  margin: 15px 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.mini-cart strong {
+  display: block;
+  text-align: right;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.mini-cart > button {
+  width: 100%;
+  background-color: var(--color-surface-black);
+  color: var(--color-text-white);
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+  margin-left: 0; /* Reseteo si hay márgenes globales */
+}
+
+.mini-cart > button:hover {
+  background-color: var(--color-primary-hover);
+} 
+
+.submenu .logout-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  margin: var(--space-sm) 0 0 0;
+}
+
+
+

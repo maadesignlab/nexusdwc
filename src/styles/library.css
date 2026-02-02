@@ -1,12 +1,15 @@
 .library-page {
   min-height: 100vh;
+  max-width: 1440px;
+ margin: 0 auto;
+
 }
 
 .library-page h1 {
-  font-size: 2rem;
+  font-size: var(--text-3xl);
   margin-bottom: 2rem;
   text-align: center;
-}
+} 
 
 /* Layout general */
 .catalogo-and-filtros {
@@ -19,6 +22,7 @@
 .filtros {
   height: 100%;
   padding: var(--space-xl);
+  padding-right: 0;
 
 }
 
@@ -38,52 +42,4 @@
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: var(--space-md);
   margin: var(--space-xl);
-}
-
-/* Card base (temporal) */
-.book-card {
-  background: white;
-  border-radius: 14px;
-  padding: 1rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.book-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-}
-
-.book-card img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-
-.book-card h3 {
-  font-size: 1rem;
-  margin-bottom: .25rem;
-}
-
-.book-card .author {
-  font-size: .9rem;
-  color: #666;
-}
-
-.book-card .price {
-  font-weight: 700;
-  margin-top: .5rem;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .catalogo-and-filtros {
-    grid-template-columns: 1fr;
-  }
-
-  .filtros {
-    order: 2;
-  }
 }
