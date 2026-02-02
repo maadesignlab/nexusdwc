@@ -8,7 +8,7 @@
   margin: 0 auto;
   padding: var(--space-lg);
   gap: var(--space-lg);
-  min-height: calc(100vh - 58.4px); /* Ajuste según tu header/footer */
+  min-height: calc(100vh - (68px + 441.913px));
 }
 
 .account-main-viewport {

@@ -1,10 +1,11 @@
 /* --- Contenedor Principal --- */
 .cart {
   max-width: 900px;
-  margin: calc(var(--space-xl)) auto;
-  padding: 0 var(--space-md);
+  padding: var(--space-lg) var(--space-md);
   font-family: var(--font-sans, sans-serif);
   color: var(--color-text);
+  margin: 0 auto;
+  min-height: calc(100vh - (68px + 441.913px));
 }
 
 .cart h1 {
@@ -17,7 +18,7 @@
 /* --- Estado Vacío --- */
 .cart.empty {
   text-align: center;
-  height: calc(100vh - (67.6px));
+  height: calc( 100vh - (68px + 441.913px));
 }
 
 .cart.empty h2 {
