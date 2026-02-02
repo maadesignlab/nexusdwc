@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLoader } from "../../hooks/useLoader";
+import { navigate } from "react-router-dom"
 import { useCart } from "../../context/CartContext";
 import "../../styles/paymentform.css";
 
@@ -39,7 +39,7 @@ export default function PaymentForm() {
     setTimeout(() => {
         clearCart();
         alert("¡Pedido Confirmado Exitosamente!");
-        window.location.href = "/dashboard";
+        navigate("/dashboard");
     }, 2100);
   };
 
