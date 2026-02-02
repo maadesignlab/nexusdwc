@@ -9,6 +9,13 @@
   min-height: calc(100vh - 68px);
 }
 
+/* 🖥️ Desktop: permitir que el footer aparezca */
+@media (min-width: 1024px) {
+  .dashboard-bento {
+    min-height: auto;
+  }
+}
+
 /* Base card */
 .bento-card {
   background: var(--color-surface);
@@ -33,15 +40,16 @@
 }
 
 .bento-hero h1 {
-  font-size: 2rem;
+  font-size: clamp(2rem, 2.5vw, 2.6rem);
   margin-bottom: var(--space-sm);
 }
 
 .bento-hero p {
   color: var(--color-text-secondary);
-  max-width: 420px;
+  max-width: 520px;
 }
 
+/* Hero stats */
 .hero-stats {
   display: flex;
   gap: var(--space-lg);
@@ -98,7 +106,27 @@
   font-size: 1rem;
 }
 
-/* RESPONSIVE */
+/* Desktop grande */
+@media (min-width: 1440px) {
+  .dashboard-bento {
+    max-width: 1400px;
+  }
+}
+
+/* 2K / ultrawide */
+@media (min-width: 1920px) {
+  .dashboard-bento {
+    max-width: 1600px;
+    grid-template-columns: repeat(5, 1fr);
+    height: calc( 100vh - (68px + 441.913px));
+  }
+
+  .bento-hero {
+    grid-column: span 3;
+  }
+}
+
+/* Mobile */
 @media (max-width: 900px) {
   .dashboard-bento {
     grid-template-columns: 1fr;
@@ -109,3 +137,5 @@
     grid-column: span 1;
   }
 }
+
+
