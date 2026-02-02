@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/HistoryItem.css";
+import "../../styles/historyitem.css";
 
 function HistoryItem({ compra }) {
   // 1. Blindaje: Si por alguna razón 'compra' es undefined, no renderizamos nada.
