@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "../styles/Unavailable.css";
+import "../styles/unavailable.css";
 
 function Unavailable() {
   return (
