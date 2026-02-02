@@ -3,7 +3,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 20px;
-  min-height: calc(100vh - 160px); /* Ajuste para sticky footer */
+  min-height: calc(100vh - (68px + 441.913px));
   display: flex;
   align-items: center;
   justify-content: center;
