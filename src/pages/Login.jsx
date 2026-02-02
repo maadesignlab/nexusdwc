@@ -35,7 +35,7 @@ function Login() {
         </button>
 
         <div className="logo-login">
-          <img src="/src/assets/nexus.svg" alt="Nexus" />
+          <img src="/img/nexus.svg" alt="Nexus" />
         </div>
 
         <h2>Iniciar sesión</h2>
