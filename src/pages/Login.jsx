@@ -68,7 +68,7 @@ function Login() {
           <div className="credentials">
             <p>Credenciales de acceso:</p>
             <p><strong>Usuario:</strong> stiven@gmail.com</p>
-            <p><strong>Contraseña:</strong> 123456</p>
+            <p><strong>Contraseña:</strong> 12345678</p>
           </div>
 
           <button type="submit" disabled={loading}>
