@@ -17,7 +17,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      await login(email);        // 🔐 AUTH REAL
+      await login(email, password);        // 🔐 AUTH REAL
       await loadStoreData();     // 🛒 TIENDA
       navigate("/dashboard");   // 🚀
     } catch (err) {

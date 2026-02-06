@@ -2,9 +2,14 @@ const BASE_URL = "https://mock.apidog.com/m1/1129812-1121696-default";
 
 export const apiService = {
   // ---------- LOGIN ----------
-  login: async (correo) => {
+  login: async (correo, contrasena) => {
+    const params = new URLSearchParams({
+      correo,
+      contrasena
+    });
+
     const res = await fetch(
-      `${BASE_URL}/login?correo=${encodeURIComponent(correo)}`
+      `${BASE_URL}/login?${params}`
     );
 
     if (!res.ok) {

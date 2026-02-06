@@ -12,12 +12,12 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const login = async (correo) => {
+  const login = async (correo, constrasena) => {
     setLoading(true);
     setError(null);
 
     try {
-      const userData = await apiService.login(correo);
+      const userData = await apiService.login(correo, constrasena);
 
       setUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
